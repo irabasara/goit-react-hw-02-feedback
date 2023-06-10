@@ -3,6 +3,7 @@ import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './Feedback/Feedback';
 import { Section } from './Section/Section';
 import { Notification } from './Notification/Notification';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   state = {
@@ -30,6 +31,22 @@ export class App extends Component {
   }
 
   render() {
+    Section.propTypes = { title: PropTypes.string };
+    FeedbackOptions.propTypes = {
+      options: PropTypes.arrayOf(PropTypes.string),
+      onLeaveFeedback: PropTypes.func,
+    };
+    Statistics.propTypes = {
+      good: PropTypes.number,
+      neutral: PropTypes.number,
+      bad: PropTypes.number,
+      total: PropTypes.number,
+      positivePercentage: PropTypes.number,
+    };
+    Notification.propTypes = {
+      message: PropTypes.string,
+    };
+
     const { good, neutral, bad } = this.state;
 
     return (

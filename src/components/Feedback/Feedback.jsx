@@ -1,10 +1,10 @@
 import css from './feedback.module.css';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
-  <div>
+  <div className={css.buttonsWrapper}>
     {options.map(option => (
       <button
-        className={css.feedbackButtons}
+        className={`${css.feedbackButtons} ${css.feedbackButtons.hover}`}
         key={option}
         onClick={() => onLeaveFeedback(option)}
       >
